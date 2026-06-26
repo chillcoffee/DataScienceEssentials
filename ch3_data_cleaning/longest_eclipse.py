@@ -20,6 +20,16 @@ ec[['m', 's']] = ec_duration
 ec = ec.dropna()
 ec['total_seconds'] = ec.eval('m * 60 + s')
 print(ec)
-print(ec.query('total_seconds == total_seconds.max()'))
+longest = ec.query('total_seconds == total_seconds.max()')
+print(longest)
+# print(f"\nLongest eclipse was on {str(longest['date'])} which was {longest['m']} and {longest['s']} seconds total of {longest['total_seconds']}.\n")
+# print(type(longest))
+
+"""
+What is the average duration of total solar eclipses?
+Show the next 10 solar eclipses?
+"""
+print(ec['total_seconds'].mean())
+
 
 
